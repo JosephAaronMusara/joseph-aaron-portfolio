@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-paper: 250 250 247;
+  --color-ink: 22 22 19;
+  --color-muted: 92 91 87;
+  --color-line: 231 229 222;
+  --color-accent: 31 77 63;
+  --color-accent-hover: 23 58 48;
+  color-scheme: light;
+}
+
+:root.dark {
+  --color-paper: 17 17 16;
+  --color-ink: 237 235 228;
+  --color-muted: 142 140 132;
+  --color-line: 38 37 31;
+  --color-accent: 132 196 171;
+  --color-accent-hover: 156 215 191;
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: rgb(var(--color-paper));
+  color: rgb(var(--color-ink));
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgb(var(--color-ink));
+  color: rgb(var(--color-paper));
+}
+
+.container-page {
+  max-width: theme("maxWidth.page");
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-page {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+.section-divider {
+  border-top: 1px solid rgb(var(--color-line));
+}
+
+.hairline {
+  background: rgb(var(--color-line));
+}
+
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 200ms ease;
+}
+
+.link-underline:hover {
+  background-size: 100% 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

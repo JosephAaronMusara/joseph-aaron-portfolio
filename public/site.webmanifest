@@ -1,0 +1,23 @@
+{
+  "name": "Joseph Aaron Musara",
+  "short_name": "Joseph Musara",
+  "description": "Software Engineer building AI-powered systems that work in production.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFAF7",
+  "theme_color": "#1F4D3F",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
