@@ -21,6 +21,9 @@ export function Experience() {
                 {entry.period}
               </p>
               <p className="mt-2 text-sm text-ink">{entry.company}</p>
+              {entry.location && (
+                <p className="mt-1 text-sm text-muted">{entry.location}</p>
+              )}
             </div>
 
             <div className="md:col-span-9">

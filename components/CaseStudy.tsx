@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowUpRight, ExternalLink, Github } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, BookOpen, ExternalLink, Github } from "lucide-react";
 import type { Project } from "@/lib/projects";
 
 type Props = { project: Project };
@@ -48,7 +48,10 @@ export function CaseStudy({ project }: Props) {
               ))}
             </ul>
 
-            {(project.links?.repo || project.links?.live) && (
+            {(project.links?.repo ||
+              project.links?.live ||
+              project.links?.alsoLive?.length ||
+              project.links?.docs) && (
               <div className="mt-5 flex flex-col gap-2">
                 {project.links?.live && (
                   <a
@@ -61,6 +64,18 @@ export function CaseStudy({ project }: Props) {
                     <span className="link-underline">Live</span>
                   </a>
                 )}
+                {project.links?.alsoLive?.map((item) => (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="inline-flex items-center gap-1.5 text-sm text-ink"
+                  >
+                    <ExternalLink size={14} />
+                    <span className="link-underline">{item.label}</span>
+                  </a>
+                ))}
                 {project.links?.repo && (
                   <a
                     href={project.links.repo}
@@ -70,6 +85,17 @@ export function CaseStudy({ project }: Props) {
                   >
                     <Github size={14} />
                     <span className="link-underline">Repository</span>
+                  </a>
+                )}
+                {project.links?.docs && (
+                  <a
+                    href={project.links.docs.href}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="inline-flex items-center gap-1.5 text-sm text-ink"
+                  >
+                    <BookOpen size={14} />
+                    <span className="link-underline">{project.links.docs.label}</span>
                   </a>
                 )}
               </div>
@@ -86,7 +112,7 @@ export function CaseStudy({ project }: Props) {
             alt={project.hero.alt}
             fill
             sizes="(min-width: 1024px) 1024px, 100vw"
-            className="object-cover"
+            className="object-cover object-top"
             priority
           />
         </div>
@@ -128,7 +154,7 @@ export function CaseStudy({ project }: Props) {
                 </li>
               ))}
             </ul>
-            {project.architectureDiagram ? (
+            {project.architectureDiagram && (
               <figure className="mt-8 space-y-2">
                 <div className="relative aspect-[16/9] rounded-xl border border-line overflow-hidden bg-line/20">
                   <Image
@@ -145,12 +171,6 @@ export function CaseStudy({ project }: Props) {
                   </figcaption>
                 )}
               </figure>
-            ) : (
-              <div className="mt-8 aspect-[16/9] rounded-xl border border-dashed border-line grid place-items-center">
-                <span className="text-xs font-mono text-muted">
-                  Architecture diagram placeholder
-                </span>
-              </div>
             )}
           </Section>
 
@@ -184,18 +204,18 @@ export function CaseStudy({ project }: Props) {
             </ul>
           </Section>
 
-          <Section title="Screenshots">
-            {project.screenshots && project.screenshots.length > 0 ? (
+          {project.screenshots && project.screenshots.length > 0 && (
+            <Section title="Screenshots">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {project.screenshots.map((shot) => (
                   <figure key={shot.src} className="space-y-2">
-                    <div className="relative aspect-[4/3] rounded-lg border border-line overflow-hidden bg-line/20">
+                    <div className="relative aspect-[16/10] rounded-lg border border-line overflow-hidden bg-line/20">
                       <Image
                         src={shot.src}
                         alt={shot.alt}
                         fill
                         sizes="(min-width: 768px) 480px, 100vw"
-                        className="object-cover"
+                        className="object-cover object-top"
                       />
                     </div>
                     {shot.caption && (
@@ -206,21 +226,8 @@ export function CaseStudy({ project }: Props) {
                   </figure>
                 ))}
               </div>
-            ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {[1, 2, 3, 4].map((n) => (
-                  <div
-                    key={n}
-                    className="aspect-[4/3] rounded-lg border border-line bg-gradient-to-br from-line/30 to-paper grid place-items-center"
-                  >
-                    <span className="text-[11px] font-mono text-muted">
-                      Screenshot {n}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            )}
-          </Section>
+            </Section>
+          )}
 
           <Section title="Links">
             <ul className="space-y-2 text-base">

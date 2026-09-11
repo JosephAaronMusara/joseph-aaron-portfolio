@@ -13,8 +13,8 @@ export function Contact() {
       </h2>
 
       <p className="mt-5 max-w-prose text-base md:text-lg leading-relaxed text-muted">
-        Open to software engineering roles, freelance projects, AI integrations, SaaS builds,
-        and technical collaborations. Reach me by email or WhatsApp.
+        Open to software engineering roles, freelance projects, data and BI work, AI
+        integrations, and SaaS builds. Reach me by email or WhatsApp.
       </p>
 
       <div className="mt-8 flex flex-wrap gap-3">
@@ -62,7 +62,7 @@ export function Contact() {
       </div>
 
       <p className="mt-10 text-sm text-muted">
-        Based in {site.location}. Available for remote work.
+        Based in {site.location}. {site.availability}.
       </p>
     </section>
   );

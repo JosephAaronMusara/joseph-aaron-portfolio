@@ -5,11 +5,14 @@ export type SkillGroup = {
 
 export const skillGroups: SkillGroup[] = [
   {
+    name: "Languages",
+    items: ["Python", "TypeScript", "JavaScript", "SQL"],
+  },
+  {
     name: "Frontend",
     items: [
       "Next.js",
       "React",
-      "TypeScript",
       "Tailwind CSS",
       "React Native",
       "UI architecture",
@@ -19,38 +22,72 @@ export const skillGroups: SkillGroup[] = [
   {
     name: "Backend",
     items: [
-      "Python",
+      "REST API design",
       "Frappe Framework",
       "Django",
-      "REST APIs",
-      "Authentication",
+      "Node.js",
+      "Server actions",
       "Background workers",
-      "Redis",
-      "MariaDB",
+      "Automated testing & evals",
     ],
   },
   {
-    name: "AI & Automation",
+    name: "Databases & Data",
+    items: [
+      "PostgreSQL",
+      "MySQL / MariaDB",
+      "MongoDB",
+      "Firestore",
+      "Redis",
+      "Data modelling",
+      "Query optimisation",
+    ],
+  },
+  {
+    name: "Analytics & BI",
+    items: [
+      "Natural language to SQL",
+      "Semantic layers",
+      "KPI reporting",
+      "Dashboards",
+      "Recharts",
+      "Leaflet",
+    ],
+  },
+  {
+    name: "Security",
+    items: [
+      "JWT & httpOnly cookies",
+      "Backend-for-frontend proxy",
+      "Role-based access control",
+      "Rate limiting",
+      "Audit trails",
+      "Secure deployment",
+    ],
+  },
+  {
+    name: "AI & Real-time",
     items: [
       "OpenAI API",
       "Anthropic API",
-      "CV parsing",
-      "AI scoring",
-      "NLP workflows",
+      "CrewAI multi-agent",
       "Prompt engineering",
-      "Voice AI agents",
+      "NLP workflows",
+      "LiveKit voice agents",
+      "TensorFlow Lite",
     ],
   },
   {
-    name: "Infrastructure",
+    name: "Cloud & DevOps",
     items: [
       "Docker",
       "Nginx",
-      "Supervisor",
       "Linux VPS",
-      "LiveKit",
-      "Deployment debugging",
-      "Production monitoring basics",
+      "Vercel",
+      "Firebase",
+      "MongoDB Atlas",
+      "CI/CD",
+      "Production monitoring",
     ],
   },
 ];

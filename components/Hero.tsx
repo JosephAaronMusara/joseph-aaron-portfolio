@@ -7,9 +7,10 @@ const supporting = [
   "Next.js",
   "TypeScript",
   "Python",
+  "PostgreSQL",
+  "Django",
   "Frappe",
   "AI Integrations",
-  "LiveKit",
   "Docker",
   "Nginx",
 ];
@@ -25,14 +26,16 @@ export function Hero() {
       <Reveal>
         <h1 className="mt-6 font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tightish text-ink">
           Software Engineer building{" "}
-          <span className="text-accent">AI-powered systems</span> that work in production.
+          <span className="text-accent">secure, data-driven systems</span> that run in production.
         </h1>
       </Reveal>
 
       <Reveal delay={0.1}>
         <p className="mt-6 max-w-prose text-base md:text-lg leading-relaxed text-muted">
-          I work across frontend, backend, AI integrations, and infrastructure to build practical
-          software for recruitment, health, agriculture, and business operations.
+          Full-stack engineer shipping production systems end to end &mdash; data models, secure
+          backend APIs, analytics and business-intelligence layers, frontends, and cloud
+          deployment. First Class Software Engineering graduate and recipient of Baker Tilly&rsquo;s
+          Prize for the Best Graduating Student in Computer Programming.
         </p>
       </Reveal>
 

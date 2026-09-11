@@ -1,9 +1,11 @@
 export type ProjectCategory =
+  | "Business intelligence / Analytics"
   | "Full-stack AI SaaS"
   | "Voice AI / Real-time systems"
   | "AI / Public health / Analytics"
   | "Mobile / Agriculture / AI"
-  | "Payments / SaaS infrastructure";
+  | "Payments / SaaS infrastructure"
+  | "Corporate web / SEO";
 
 export type Project = {
   slug: string;
@@ -35,6 +37,8 @@ export type Project = {
   links?: {
     repo?: string;
     live?: string;
+    alsoLive?: { href: string; label: string }[];
+    docs?: { href: string; label: string };
   };
   cta: string;
   hasCaseStudy: boolean;
@@ -42,8 +46,266 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "colossal-hr-bi",
+    title: "Colossal HR: HR Platform with Conversational Business Intelligence",
+    category: "Business intelligence / Analytics",
+    year: "2025 - 2026",
+    summary:
+      "A full HR platform where anyone can ask a question in plain language and get a chart back with a cited, readable narrative — every answer traceable to the metric definition and SQL that produced it.",
+    description:
+      "The combined Colossal workspace — people, time and attendance, performance, payroll, leave, expenses, training, and the recruitment and AI interview modules — unified behind one conversational business-intelligence layer.",
+    problem:
+      "HR teams sit on the data that answers their hardest questions — attrition, cost per hire, leave liability, payroll drift — but getting an answer means filing a ticket and waiting for someone who can write SQL. Bolting an LLM onto the database swaps that delay for a different problem: confident answers nobody can verify.",
+    solution:
+      "A conversational analytics surface over a tenant-scoped semantic layer. Users ask in plain language; a multi-agent pipeline plans, executes, visualises, and explains the answer, and an adversarial reviewer has to pass it before it is published. Every chart cites the exact metric definition and SQL behind it.",
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "Frappe",
+      "Python",
+      "PostgreSQL",
+      "CrewAI",
+      "Anthropic",
+      "OpenAI",
+      "sqlglot",
+      "Recharts",
+    ],
+    highlights: [
+      "Natural-language questions answered with charts and cited narratives",
+      "Tenant-scoped semantic layer — every answer traces to a metric definition and SQL",
+      "Multi-agent pipeline gated on an adversarial fact-checking pass",
+      "Pluggable connectors: Postgres, MySQL, BigQuery, Snowflake, CSV, PDF tables",
+      "Unified workspace: people, time, performance, payroll, leave, expenses, training",
+      "Recruitment and the AI interview agent run as modules inside the same workspace",
+    ],
+    metrics: [
+      "Sole engineer across data model, backend, AI pipeline, frontend, and deployment",
+      "Every published answer carries the metric definition and query that produced it",
+      "One execution layer serving six connector types via sqlglot dialect translation",
+    ],
+    caseStudy: {
+      overview:
+        "Colossal HR is the combined workspace: the people record, time and attendance, performance, payroll, leave, expenses, and training all live alongside the recruitment and AI interview modules. Its defining feature is the analytics surface on top. Rather than shipping a fixed dashboard, it lets users ask questions in plain language and returns a chart with a written, cited explanation. The engineering problem was not generating SQL — it was making the output auditable enough that an HR manager could act on it.",
+      role: "Sole engineer. Data model, semantic layer, multi-agent analytics pipeline, connectors, backend APIs, frontend, and production deployment.",
+      architecture: [
+        {
+          title: "Semantic layer",
+          body: "Metrics are defined once, per tenant, with their dimensions, joins, and filters. The model never composes against raw schema — it works from defined metrics, so an answer can always be traced back to a definition a human wrote and approved.",
+        },
+        {
+          title: "Multi-agent pipeline",
+          body: "Planner → Executor → Visualise → Explain → Recommend → Adversarial Reviewer, orchestrated with CrewAI. The planner resolves the question to metrics, the executor runs the query, and the reviewer fact-checks the narrative against the returned rows before anything is published.",
+        },
+        {
+          title: "Connector layer",
+          body: "Postgres, MySQL, BigQuery, Snowflake, CSV, and PDF tables sit behind one execution interface. sqlglot handles dialect translation, so the planner emits one query shape and the connector renders it correctly per engine.",
+        },
+        {
+          title: "HR core",
+          body: "Frappe on Python owns the operational data model — employees, recruitment, performance, payroll, leave, expenses, training — and exposes it to the Next.js frontend over REST, under the same tenant scoping the analytics layer enforces.",
+        },
+      ],
+      features: [
+        {
+          title: "Ask in plain language, get a cited chart",
+          body: "Questions go in as text and come back as a chart plus a readable narrative, with the metric definition and generated SQL attached to the answer.",
+        },
+        {
+          title: "Adversarial review before publish",
+          body: "A reviewer agent checks the narrative against the actual result rows. Answers that fail the pass do not reach the user, which is the difference between BI and a plausible-sounding guess.",
+        },
+        {
+          title: "Tenant-scoped metric definitions",
+          body: "Each tenant defines what attrition or cost per hire means for them. Two organisations can ask the same question and correctly get different numbers.",
+        },
+        {
+          title: "Pluggable data sources",
+          body: "Teams point the analytics layer at their existing warehouse or upload a CSV or PDF table, without changing how they ask questions.",
+        },
+        {
+          title: "One workspace, many modules",
+          body: "Employee records, time and attendance, performance reviews, payroll, leave, expenses, training, recruitment, and AI interviews share one data model — so the analytics layer reads exactly the data the day-to-day workflows write, with no export step in between.",
+        },
+      ],
+      challenges: [
+        {
+          title: "Making LLM analytics auditable",
+          body: "Text-to-SQL over a raw schema produces answers nobody can check. Forcing every query through a defined semantic layer, and shipping the definition and SQL alongside the chart, turns the output from a claim into something reviewable.",
+        },
+        {
+          title: "Six dialects, one planner",
+          body: "Supporting Postgres through Snowflake without branching the planner meant putting sqlglot translation at the execution boundary and keeping the planner's output dialect-neutral.",
+        },
+        {
+          title: "Cost and latency of a six-agent pipeline",
+          body: "Running six agents per question is expensive in both tokens and wall-clock. Narrowing each agent's context to what it actually needs, and short-circuiting the pipeline on cached or trivially-resolved questions, kept it usable.",
+        },
+      ],
+      learnings: [
+        "The hard part of conversational BI is not SQL generation — it is building the layer that makes an answer checkable.",
+        "An adversarial review pass is cheaper than one wrong number reaching a decision-maker.",
+        "A semantic layer is a product surface, not just infrastructure: letting tenants define their own metrics is what makes the answers correct for them.",
+      ],
+    },
+    hero: {
+      src: "/screenshots/colossal-hr-bi/hero.png",
+      alt: "Colossal HR — one workspace for people, time, performance, payroll, and recruitment",
+    },
+    screenshots: [
+      {
+        src: "/screenshots/colossal-hr-bi/hero.png",
+        alt: "Colossal HR sign-in and product overview",
+        caption:
+          "One workspace: unified people record, time and attendance, performance and analytics, and recruitment with AI shortlisting and structured interviews.",
+      },
+    ],
+    links: {
+      repo: undefined,
+      live: "https://hr.colossalhub.com",
+      alsoLive: [
+        {
+          href: "https://recruitment.colossalhub.com",
+          label: "Recruitment module",
+        },
+      ],
+    },
+    cta: "Read case study",
+    hasCaseStudy: true,
+  },
+  {
+    slug: "gibraltar-bd-platform",
+    title: "Business Development Intelligence Platform",
+    category: "Business intelligence / Analytics",
+    year: "2026",
+    summary:
+      "A security-first platform for Gibraltar Research Africa that tracks the full tender pipeline with KPIs, win-rate analytics, automated deadline reminders, and a complete audit trail across a shared workspace.",
+    description:
+      "A business-development intelligence platform tracking tenders end to end — pipeline stages, KPIs, win-rate analytics, deadline reminders — built on a security-first authentication and permissions model.",
+    problem:
+      "Tender pipelines usually live in spreadsheets and inboxes. Deadlines get missed, nobody can say what the win rate actually is, and when several people work the same pipeline there is no record of who changed what.",
+    solution:
+      "A shared, multi-user workspace that models the tender pipeline properly: stages, owners, deadlines, and outcomes, with KPIs and win-rate analytics computed off the same records, automated deadline reminders, and a full audit trail behind role-based permissions.",
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "Django",
+      "Python",
+      "MongoDB",
+      "JWT",
+      "Recharts",
+      "Docker",
+      "Nginx",
+    ],
+    highlights: [
+      "Full tender pipeline tracking from opportunity to outcome",
+      "KPI dashboard and win-rate analytics computed from live pipeline records",
+      "Automated deadline reminders so bids do not lapse silently",
+      "JWTs in httpOnly cookies via a backend-for-frontend proxy",
+      "Rate-limited login, role-based permissions, and a complete audit trail",
+    ],
+    metrics: [
+      "Live in production at bd.gibraltarresearch.africa",
+      "Shared multi-user workspace with per-action audit history",
+      "Designed, built, and deployed solo as a freelance engagement",
+    ],
+    caseStudy: {
+      overview:
+        "Gibraltar Research Africa needed to run its tender pipeline as a system rather than a spreadsheet. The platform tracks every opportunity from identification through submission to outcome, computes the KPIs leadership actually asks about, and does it behind an authentication model designed for commercially sensitive data in a shared workspace.",
+      role: "Sole engineer on a freelance engagement: requirements, data model, backend, security model, frontend, analytics, and production deployment. Also designed and built the corporate site.",
+      architecture: [
+        {
+          title: "Backend-for-frontend proxy",
+          body: "The Next.js server sits between the browser and Django. Tokens never touch client JavaScript — JWTs live in httpOnly cookies and the proxy attaches them server-side, which removes the whole class of token-theft-via-XSS.",
+        },
+        {
+          title: "Django API",
+          body: "Django owns the domain model — opportunities, stages, owners, deadlines, outcomes, and audit entries — over MongoDB, with role-based permission checks enforced at the API boundary rather than in the UI.",
+        },
+        {
+          title: "Analytics layer",
+          body: "Win rate, pipeline value by stage, and activity KPIs are computed from the same records the team edits day to day, so the dashboard cannot drift from the pipeline it reports on.",
+        },
+        {
+          title: "Reminders",
+          body: "Scheduled jobs watch submission deadlines and notify owners ahead of time, turning a missed date from an ordinary outcome into an exception.",
+        },
+      ],
+      features: [
+        {
+          title: "Full pipeline tracking",
+          body: "Every tender is tracked from identification to submission to outcome, with owners and dates attached at each stage.",
+        },
+        {
+          title: "Win-rate analytics",
+          body: "Win rate and pipeline health broken down by stage, period, and owner — the numbers leadership asks for, without anyone rebuilding a spreadsheet.",
+        },
+        {
+          title: "Automated deadline reminders",
+          body: "Owners are notified ahead of submission deadlines so bids do not lapse quietly.",
+        },
+        {
+          title: "Security-first authentication",
+          body: "JWTs in httpOnly cookies through a backend-for-frontend proxy, with rate-limited login to blunt credential stuffing.",
+        },
+        {
+          title: "Audit trail and role-based permissions",
+          body: "Every change is attributed and recorded. In a shared workspace holding commercially sensitive bid data, knowing who changed what is part of the product.",
+        },
+      ],
+      challenges: [
+        {
+          title: "Security in a shared workspace",
+          body: "Multiple people working the same commercially sensitive pipeline means permissions and attribution cannot be an afterthought. Both were designed into the data model before feature work started.",
+        },
+        {
+          title: "Analytics that stay honest",
+          body: "Reporting layers drift from reality when they read a separate copy of the data. Computing KPIs directly off pipeline records keeps the dashboard and the workflow permanently in sync.",
+        },
+        {
+          title: "Deploying to a client domain",
+          body: "Shipping to bd.gibraltarresearch.africa meant owning DNS, TLS, the Nginx ingress, and the deployment pipeline — not just handing over a repository.",
+        },
+      ],
+      learnings: [
+        "Putting tokens in httpOnly cookies behind a BFF proxy costs one extra hop and removes an entire vulnerability class — an easy trade.",
+        "An audit trail is a feature for the client, not overhead for the engineer; it is what makes a shared workspace trustworthy.",
+        "For a business-development tool, the KPI view is the product. Everything else exists to keep it accurate.",
+      ],
+    },
+    hero: {
+      src: "/screenshots/gibraltar-bd-platform/hero.png",
+      alt: "BD Intelligence overview — open pipeline, win rate, pipeline value, and won contract value",
+    },
+    screenshots: [
+      {
+        src: "/screenshots/gibraltar-bd-platform/hero.png",
+        alt: "Pipeline overview dashboard",
+        caption:
+          "Overview: open pipeline, win rate, pipeline and won-contract value, stage breakdown, and upcoming tender deadlines with automatic coordinator emails.",
+      },
+      {
+        src: "/screenshots/gibraltar-bd-platform/01-analytics.png",
+        alt: "Analytics by thematic area, client type, and bid type",
+        caption:
+          "Win-rate analytics sliced by thematic area, client type, and bid type, with quarterly submissions-versus-wins trend.",
+      },
+      {
+        src: "/screenshots/gibraltar-bd-platform/02-login.png",
+        alt: "BD Intelligence sign-in",
+        caption:
+          "Sign-in to the shared workspace — access managed centrally, with rate-limited login and JWTs in httpOnly cookies.",
+      },
+    ],
+    links: {
+      repo: undefined,
+      live: "https://bd.gibraltarresearch.africa",
+    },
+    cta: "Read case study",
+    hasCaseStudy: true,
+  },
+  {
     slug: "ai-recruitment-platform",
-    title: "AI-Powered Recruitment SaaS Platform",
+    title: "AI-Powered Recruitment SaaS & Payments",
     category: "Full-stack AI SaaS",
     year: "2025 - 2026",
     summary:
@@ -60,6 +322,7 @@ export const projects: Project[] = [
       "Frappe",
       "Python",
       "OpenAI",
+      "Paynow",
       "Redis",
       "Docker",
       "Nginx",
@@ -69,9 +332,10 @@ export const projects: Project[] = [
       "Bias-verification notes attached to each AI score",
       "Backend APIs for interview sessions and candidate workflows",
       "Production deployment with Nginx and supervisor",
-      "Usage-based billing direction using credits",
+      "Credit-based billing with Paynow initiation, status polling, and usage metering",
     ],
     metrics: [
+      "Live in production at recruitment.colossalhub.com",
       "Designed to reduce manual screening workload by an estimated 60%+",
       "Supports structured candidate review from application through interview",
     ],
@@ -143,11 +407,6 @@ export const projects: Project[] = [
       src: "/screenshots/ai-recruitment-platform/hero.png",
       alt: "AI-powered recruitment platform — overview",
     },
-    architectureDiagram: {
-      src: "/screenshots/ai-recruitment-platform/architecture.png",
-      alt: "Recruitment platform system architecture",
-      caption: "Next.js + Frappe + OpenAI behind an Nginx ingress, with Redis-backed workers.",
-    },
     screenshots: [
       {
         src: "/screenshots/ai-recruitment-platform/01-jobs.png",
@@ -172,7 +431,13 @@ export const projects: Project[] = [
     ],
     links: {
       repo: undefined,
-      live: "https://hr-frontend-colossal.vercel.app/",
+      live: "https://recruitment.colossalhub.com",
+      alsoLive: [
+        {
+          href: "https://hr.colossalhub.com",
+          label: "Also inside Colossal HR",
+        },
+      ],
     },
     cta: "Read case study",
     hasCaseStudy: true,
@@ -275,11 +540,6 @@ export const projects: Project[] = [
       src: "/screenshots/ai-interview-agent/hero.png",
       alt: "Real-time AI interview agent — candidate room",
     },
-    architectureDiagram: {
-      src: "/screenshots/ai-interview-agent/architecture.png",
-      alt: "Interview agent real-time pipeline",
-      caption: "LiveKit transport, Python agent with Deepgram STT, OpenAI planner, Cartesia TTS, and LiveKit Egress for recording.",
-    },
     screenshots: [
       {
         src: "/screenshots/ai-interview-agent/01-room.png",
@@ -304,7 +564,13 @@ export const projects: Project[] = [
     ],
     links: {
       repo: undefined,
-      live: "https://hr-frontend-colossal.vercel.app/",
+      live: "https://hr.colossalhub.com",
+      alsoLive: [
+        {
+          href: "https://recruitment.colossalhub.com",
+          label: "Also on Recruitment",
+        },
+      ],
     },
     cta: "View technical breakdown",
     hasCaseStudy: true,
@@ -419,6 +685,13 @@ export const projects: Project[] = [
         caption: "Verification workflow.",
       },
     ],
+    links: {
+      repo: undefined,
+      docs: {
+        href: "https://chrap-user-manual.vercel.app",
+        label: "User manual",
+      },
+    },
     cta: "Explore project",
     hasCaseStudy: true,
   },
@@ -548,39 +821,57 @@ export const projects: Project[] = [
         "Building for Zimbabwean infrastructure realities (modest devices, patchy data, GPS-equipped but battery-constrained phones) produces a sturdier product than designing for ideal conditions and degrading.",
       ],
     },
+    cta: "Read case study",
+    hasCaseStudy: true,
+  },
+  {
+    slug: "gibraltar-corporate-site",
+    title: "Gibraltar Research Africa Corporate Website",
+    category: "Corporate web / SEO",
+    year: "2026",
+    summary:
+      "The corporate site for Gibraltar Research Africa — designed, built, and deployed with SEO, responsive layout, and fast first loads as the brief.",
+    description:
+      "A corporate website for a research and advisory firm, built for search visibility, responsive layout, and quick loads on Zimbabwean connections.",
+    problem:
+      "A research firm competing for tenders and institutional clients is judged on its web presence before anyone reads a proposal. The old presence did not reflect the work.",
+    solution:
+      "A fast, responsive corporate site with a clear service and sector structure, semantic markup and metadata for search visibility, and a deployment tuned for quick first loads.",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "SEO", "Responsive UI", "Vercel"],
+    highlights: [
+      "Service, sector, and insight structure aimed at how clients actually search",
+      "Semantic markup, metadata, and sitemap for search visibility",
+      "Responsive layout built mobile-first",
+      "Deployed and maintained on the client domain",
+    ],
+    metrics: ["Live in production at gibraltarresearch.africa"],
     hero: {
-      src: "/screenshots/agrisphere/hero.png",
-      alt: "AgriSphere — farmer home screen",
-    },
-    architectureDiagram: {
-      src: "/screenshots/agrisphere/architecture.png",
-      alt: "AgriSphere mobile architecture",
-      caption: "React Native app with on-device TensorFlow Lite inference, Firebase backend, and GPS + Haversine for dealer ranking.",
+      src: "/screenshots/gibraltar-corporate-site/hero.png",
+      alt: "Gibraltar Research Africa homepage",
     },
     screenshots: [
       {
-        src: "/screenshots/agrisphere/01-fields.png",
-        alt: "Field management screen",
-        caption: "Field management with variety and planting date.",
+        src: "/screenshots/gibraltar-corporate-site/hero.png",
+        alt: "Homepage hero",
+        caption: "Homepage — advisory, evidence, and delivery across Africa.",
       },
       {
-        src: "/screenshots/agrisphere/02-scan.png",
-        alt: "Disease detection scan result",
-        caption: "On-device disease classification with confidence and advice.",
+        src: "/screenshots/gibraltar-corporate-site/01-expertise.png",
+        alt: "Core focus areas section",
+        caption: "Core focus areas, structured around the six disciplines clients search for.",
       },
       {
-        src: "/screenshots/agrisphere/03-dealers.png",
-        alt: "Nearby dealer finder",
-        caption: "Proximity-ranked dealer finder using Haversine distance.",
-      },
-      {
-        src: "/screenshots/agrisphere/04-dashboard.png",
-        alt: "Farmer dashboard",
-        caption: "Farmer dashboard summarizing fields, scans, and advisories.",
+        src: "/screenshots/gibraltar-corporate-site/02-approach.png",
+        alt: "How we work section",
+        caption: "Approach section, with light and dark themes supported.",
       },
     ],
-    cta: "Read case study",
-    hasCaseStudy: true,
+    links: {
+      repo: undefined,
+      live: "https://www.gibraltarresearch.africa",
+    },
+    cta: "Visit site",
+    hasCaseStudy: false,
   },
   {
     slug: "paynow-billing",
@@ -597,29 +888,38 @@ export const projects: Project[] = [
       "A credit-based billing model with Paynow payment initiation, status polling, transaction records, and per-feature usage logging.",
     stack: ["Python", "Frappe", "Paynow", "REST APIs", "SaaS Billing"],
     highlights: [
-      "Credit-based usage model",
-      "Paynow payment initiation and polling",
+      "Credit-based usage model with per-feature metering",
+      "Paynow payment initiation and status polling",
       "Transaction lifecycle tracking",
       "Hook points for AI usage cost logging",
     ],
-    metrics: ["Designed for Zimbabwean SaaS payment realities"],
+    metrics: [
+      "Running in production behind recruitment.colossalhub.com",
+      "Designed for Zimbabwean SaaS payment realities",
+    ],
+    links: {
+      repo: undefined,
+      live: "https://recruitment.colossalhub.com",
+    },
     cta: "See implementation",
     hasCaseStudy: false,
   },
 ];
 
 export const categories: ProjectCategory[] = [
+  "Business intelligence / Analytics",
   "Full-stack AI SaaS",
   "Voice AI / Real-time systems",
   "AI / Public health / Analytics",
   "Mobile / Agriculture / AI",
   "Payments / SaaS infrastructure",
+  "Corporate web / SEO",
 ];
 
 export const featuredSlugs = [
+  "colossal-hr-bi",
+  "gibraltar-bd-platform",
   "ai-recruitment-platform",
-  "ai-interview-agent",
-  "community-health-platform",
 ];
 
 export function getProject(slug: string): Project | undefined {

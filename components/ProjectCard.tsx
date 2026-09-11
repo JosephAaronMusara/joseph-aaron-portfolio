@@ -18,6 +18,17 @@ export function ProjectCard({ project, index, variant = "featured" }: Props) {
         href={href}
         className="group block rounded-2xl border border-line bg-paper p-6 hover:border-ink/40 hover:shadow-[0_1px_0_0_rgba(22,22,19,0.06)] transition-all"
       >
+        {project.hero && (
+          <div className="relative mb-5 aspect-[16/9] overflow-hidden rounded-lg border border-line bg-line/30">
+            <Image
+              src={project.hero.src}
+              alt={project.hero.alt}
+              fill
+              sizes="(min-width: 768px) 50vw, 100vw"
+              className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+            />
+          </div>
+        )}
         <div className="flex items-center justify-between gap-3">
           <span className="text-xs font-mono uppercase tracking-[0.18em] text-muted">
             {project.category}
@@ -74,17 +85,17 @@ export function ProjectCard({ project, index, variant = "featured" }: Props) {
             {project.title}
           </h3>
           {project.hero ? (
-            <div className="mt-5 relative aspect-[4/3] rounded-lg border border-line overflow-hidden bg-line/30">
+            <div className="mt-5 relative aspect-[16/9] rounded-lg border border-line overflow-hidden bg-line/30">
               <Image
                 src={project.hero.src}
                 alt={project.hero.alt}
                 fill
                 sizes="(min-width: 1024px) 320px, (min-width: 768px) 33vw, 100vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
               />
             </div>
           ) : (
-            <div className="mt-5 aspect-[4/3] rounded-lg border border-line bg-gradient-to-br from-line/40 to-paper relative overflow-hidden">
+            <div className="mt-5 aspect-[16/9] rounded-lg border border-line bg-gradient-to-br from-line/40 to-paper relative overflow-hidden">
               <div className="absolute inset-0 grid place-items-center">
                 <span className="text-[11px] font-mono text-muted">
                   Screenshot · {project.slug}

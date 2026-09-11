@@ -2,6 +2,7 @@ export type ExperienceEntry = {
   role: string;
   company: string;
   period: string;
+  location?: string;
   description: string;
   highlights: string[];
 };
@@ -10,70 +11,96 @@ export const experience: ExperienceEntry[] = [
   {
     role: "Software Engineer",
     company: "Colossal Hub",
-    period: "2025 — Present",
+    period: "Oct 2025 — Present",
+    location: "Remote",
     description:
-      "Building full-stack software systems, AI-powered recruitment tools, backend APIs, and production deployments.",
+      "Lead delivery on AI-powered SaaS products end to end: data model, secure backend APIs, analytics workflows, dashboards, and production deployment.",
     highlights: [
-      "Developed AI-assisted recruitment workflows",
-      "Integrated real-time interview infrastructure",
-      "Worked on production backend deployment and infrastructure",
-      "Designed usage-based billing concepts for AI-heavy SaaS features",
-    ],
-  },
-    {
-    role: "Software Development Intern",
-    company: "Vanguard Economics Ltd Rwanda",
-    period: "2024-2025",
-    description:
-      "Gained practical experience in software development, system design, and project delivery.",
-    highlights: [
-      "Supported development of business software features",
-      "Worked with real-world requirements",
-      "Improved debugging and delivery discipline",
+      "Built an HR platform with an integrated conversational business-intelligence layer",
+      "Shipped an AI recruitment product with CV parsing and audited candidate scoring",
+      "Built a credit-based billing layer with Paynow payment integration",
+      "Stack: Next.js, TypeScript, Python (Frappe), PostgreSQL / MariaDB, Redis, Docker, Nginx",
     ],
   },
   {
-    role: "Software Development Intern",
-    company: "Spiderbit Ltd, Rwanda",
-    period: "2024-2024",
+    role: "Software Engineer (Freelance)",
+    company: "Gibraltar Research Africa",
+    period: "2026",
+    location: "Remote",
     description:
-      "Worked on software development tasks involving web systems, backend logic, and business-focused applications.",
+      "Designed, built, and deployed a secure business-development intelligence platform tracking the full tender pipeline, plus the organisation's corporate website.",
     highlights: [
-      "Contributed to practical software systems",
-      "Improved full-stack development skills",
-      "Worked in a professional software environment",
+      "Tender pipeline with KPIs, win-rate analytics, and automated deadline reminders",
+      "JWTs in httpOnly cookies via a backend-for-frontend proxy, rate-limited login",
+      "Role-based permissions and a full audit trail across a shared multi-user workspace",
+      "Built and shipped gibraltarresearch.africa with SEO and a responsive UI",
     ],
   },
   {
-    role: "Software Developer",
-    company: "Enes Harness Management Services, South Africa",
-    period: "2022-2022",
+    role: "Full-Stack Developer Intern",
+    company: "Vanguard Economics",
+    period: "Nov 2024 — Apr 2025",
+    location: "Rwanda",
     description:
-      "Inhouse software development for a small business, building web-based tools to support operations and management.",
+      "Developed, tested, and deployed full-stack, data-driven applications for an economics consultancy operating across Rwanda and the wider region.",
     highlights: [
-      "Designed and built web-based management tools from scratch",
-      "Gained experience with web technologies",
-      "Communication with non-technical stakeholders",
-      "User Training and support",
+      "Built interactive React dashboards and data visualisations for analyst-facing reporting",
+      "Wrote Django and Node.js services for advanced analytics",
+      "Optimised data storage and retrieval over large datasets",
+    ],
+  },
+  {
+    role: "Software Engineer Intern",
+    company: "Spiderbit",
+    period: "Jul 2024 — Nov 2024",
+    location: "Rwanda",
+    description:
+      "Delivered production web systems and backend logic as part of a professional software team.",
+    highlights: [
+      "Shipped backend logic and web systems into production",
+      "Several of the systems built remain in production today",
+      "Worked to professional review, testing, and delivery standards",
+    ],
+  },
+  {
+    role: "In-House Software Developer",
+    company: "Enes Harness Management Services",
+    period: "Feb 2022 — Jun 2022",
+    location: "South Africa",
+    description:
+      "In-house development for a manufacturing business, building web tools that supported day-to-day operations and management.",
+    highlights: [
+      "Shipped a Django stock-management system that flagged low raw-material levels early",
+      "Prevented stock gaps from disrupting the production floor, improving reliability",
+      "Built internal tooling and the company website",
+      "Ran user training and supported non-technical stakeholders post-launch",
     ],
   },
 ];
 
 export const technicalDepth = [
   {
-    title: "AI workflows that connect to real products",
-    body: "Not just chatbots. I build AI features around actual product flows — CV parsing, candidate scoring, interview sessions, analytics — where the AI output has to fit into a schema and a workflow.",
+    title: "Analytics and BI people can actually audit",
+    body: "Natural-language questions to SQL over a tenant-scoped semantic layer, so every chart traces back to the exact metric definition and query that produced it. Auditable BI, not opaque model output.",
+  },
+  {
+    title: "Security-first backend design",
+    body: "JWTs in httpOnly cookies behind a backend-for-frontend proxy, rate-limited auth, role-based access control, and audit trails across shared multi-user workspaces. Security in the data model, not bolted on after.",
+  },
+  {
+    title: "AI workflows wired into real products",
+    body: "Not chatbots. CV parsing, candidate scoring, multi-agent pipelines with an adversarial review pass — AI output that has to land in a schema and survive a workflow before anyone acts on it.",
   },
   {
     title: "Full-stack systems from UI to deployment",
-    body: "Frontend interfaces, backend APIs, databases, authentication, server configuration, and production deployment. I prefer owning the path from feature to shipped.",
+    body: "Frontend, backend APIs, databases, authentication, server configuration, and production deployment on Docker + Nginx + Linux VPS. I prefer owning the path from feature to shipped.",
   },
   {
     title: "Real-time communication systems",
-    body: "LiveKit-based interview rooms, voice AI agents, session tokens, and recording workflows. Real-time is mostly a systems problem, and I treat it that way.",
+    body: "LiveKit voice agents, streaming STT and TTS, session tokens, and recording workflows tuned under ~600 ms end to end. Real-time is mostly a systems problem, and I treat it that way.",
   },
   {
     title: "Zimbabwe-aware software products",
-    body: "Local payment flows, infrastructure cost, connectivity, and adoption realities are first-class constraints, not afterthoughts.",
+    body: "Local payment flows like Paynow, infrastructure cost, connectivity, and adoption realities are first-class constraints, not afterthoughts.",
   },
 ];
