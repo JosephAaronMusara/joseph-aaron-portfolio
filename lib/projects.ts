@@ -153,10 +153,16 @@ export const projects: Project[] = [
       ],
     },
     hero: {
-      src: "/screenshots/colossal-hr-bi/hero.png",
-      alt: "Colossal Hub — one workspace for people, time, performance, payroll, accounting, and recruitment",
+      src: "/screenshots/colossal-hr-bi/overall-dashboard.png",
+      alt: "The Colossal Hub overall dashboard: 725 employees, new hires, separations, turnover, and 12-month movement charts, live from the system",
     },
     screenshots: [
+      {
+        src: "/screenshots/colossal-hr-bi/overall-dashboard.png",
+        alt: "The Colossal Hub overall dashboard with headcount, hires, separations, turnover, and 12-month movement charts",
+        caption:
+          "The overall dashboard as it runs in production: headcount, hires against separations, turnover, and twelve months of workforce movement — drawn live from the same records the day-to-day workflows write.",
+      },
       {
         src: "/screenshots/colossal-hr-bi/hero.png",
         alt: "Colossal Hub sign-in and product overview",
