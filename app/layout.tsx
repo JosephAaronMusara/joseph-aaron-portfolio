@@ -80,6 +80,44 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.name,
+  alternateName: site.alias,
+  jobTitle: site.role,
+  description: site.positioning,
+  url: site.url,
+  image: `${site.url}/og.png`,
+  email: `mailto:${site.email}`,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Harare",
+    addressCountry: "ZW",
+  },
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "Harare Institute of Technology",
+  },
+  worksFor: [
+    { "@type": "Organization", name: "Colossal Hub", url: "https://www.colossalhub.com" },
+    {
+      "@type": "Organization",
+      name: "Gibraltar Research Africa",
+      url: "https://www.gibraltarresearch.africa",
+    },
+  ],
+  sameAs: [site.github, site.linkedin],
+  knowsAbout: [
+    "Software engineering",
+    "Business intelligence",
+    "AI systems",
+    "Payroll systems",
+    "Next.js",
+    "Python",
+  ],
+};
+
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#FAFAF7" },
@@ -112,6 +150,10 @@ export default function RootLayout({
     >
       <body className="font-sans antialiased">
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-ink focus:px-3 focus:py-2 focus:text-sm focus:text-paper"

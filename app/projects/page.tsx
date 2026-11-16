@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Projects",
   description:
     "Selected work — full-stack SaaS, AI systems, real-time communication, and infrastructure.",
+  alternates: { canonical: "/projects" },
 };
 
 export default function ProjectsPage() {

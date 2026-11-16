@@ -15,6 +15,7 @@ export function generateMetadata({ params }: { params: Params }): Metadata {
   return {
     title: project.title,
     description: project.summary,
+    alternates: { canonical: `/projects/${project.slug}` },
     openGraph: {
       title: project.title,
       description: project.summary,
