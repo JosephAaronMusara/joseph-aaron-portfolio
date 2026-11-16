@@ -1,6 +1,9 @@
 export const site = {
   name: "Joseph Aaron Musara",
   shortName: "Joseph Musara",
+  alias: "Nuvaryn",
+  aliasMeaning:
+    "A name I coined myself. It stands for originality, innovation, independence, ambition and continuous evolution: a mind that creates beyond boundaries.",
   role: "Software Engineer",
   location: "Harare, Zimbabwe",
   url: "https://joseph-aaron-musara.vercel.app",

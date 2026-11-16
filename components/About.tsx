@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { education, site } from "@/lib/site";
 import { SectionHeader } from "./SectionHeader";
 
@@ -23,6 +24,22 @@ export function About() {
             </p>
             <p className="mt-3 text-sm text-ink leading-relaxed">{education.award}</p>
           </div>
+
+          <div className="mt-5 rounded-xl border border-line p-5 flex items-center gap-4">
+            <Image
+              src="/nuvaryn.svg"
+              alt="The Nuvaryn mark: a letter N inside a square, its final stroke rising into an orange point"
+              width={56}
+              height={56}
+              className="rounded-lg shrink-0"
+            />
+            <div>
+              <p className="text-xs font-mono uppercase tracking-[0.18em] text-muted">
+                Also known as
+              </p>
+              <p className="mt-1 text-base text-ink">{site.alias}</p>
+            </div>
+          </div>
         </div>
 
         <div className="md:col-span-7">
@@ -33,12 +50,20 @@ export function About() {
               Best Graduating Student in Computer Programming.
             </p>
             <p>
+              I also go by <span className="text-ink font-medium">Nuvaryn</span> &mdash; a name I
+              coined myself. It stands for originality, innovation, independence, ambition and
+              continuous evolution: a mind that creates beyond boundaries. In practice, that means
+              building AI-powered systems and helping businesses put technology to work.
+            </p>
+            <p>
               My work sits where full-stack engineering meets data. I build the whole system:
               the data model, the secure backend APIs, the analytics and business-intelligence
               layer on top, the frontend people actually use, and the deployment that keeps it
-              alive. Recent work includes a security-first business-intelligence dashboard, an HR
-              platform with a natural-language analytics layer, and AI-powered SaaS products with
-              integrated payments.
+              alive. Recent work includes a full business platform &mdash; HR, dual-currency
+              payroll, fiscalised accounting, and a natural-language analytics layer, with
+              WhatsApp self-service for staff &mdash; alongside a security-first
+              business-intelligence dashboard and AI-powered SaaS products with integrated
+              payments.
             </p>
             <p>
               I care about correctness and security more than most &mdash; auditable analytics

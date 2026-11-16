@@ -33,6 +33,7 @@ export const metadata: Metadata = {
   description: site.positioning,
   keywords: [
     "Joseph Aaron Musara",
+    "Nuvaryn",
     "Software Engineer",
     "Harare",
     "Zimbabwe",

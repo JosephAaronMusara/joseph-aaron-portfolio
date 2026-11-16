@@ -14,21 +14,24 @@ export const experience: ExperienceEntry[] = [
     period: "Oct 2025 — Present",
     location: "Remote",
     description:
-      "Lead delivery on AI-powered SaaS products end to end: data model, secure backend APIs, analytics workflows, dashboards, and production deployment.",
+      "Lead delivery on one system for running a business — HR, payroll, accounting, recruitment, and conversational business intelligence — end to end: data model, secure backend APIs, AI workflows, frontends, and production deployment.",
     highlights: [
       "Built an HR platform with an integrated conversational business-intelligence layer",
+      "Shipped dual-currency payroll (US$ / ZiG) against NEC sector wage grids, PAYE tables, and NSSA ceilings",
+      "Fiscalised the accounting module against ZIMRA's FDMS, with statutory returns ready to file",
+      "Made WhatsApp a product channel — payslips, leave, clock-in, expense claims from a photo, and analytics Q&A with charts — behind layered role-based access control",
       "Shipped an AI recruitment product with CV parsing and audited candidate scoring",
       "Built a credit-based billing layer with Paynow payment integration",
       "Stack: Next.js, TypeScript, Python (Frappe), PostgreSQL / MariaDB, Redis, Docker, Nginx",
     ],
   },
   {
-    role: "Software Engineer (Freelance)",
+    role: "Head of Technology & Innovation",
     company: "Gibraltar Research Africa",
-    period: "2026",
+    period: "2026 — Present",
     location: "Remote",
     description:
-      "Designed, built, and deployed a secure business-development intelligence platform tracking the full tender pipeline, plus the organisation's corporate website.",
+      "Lead technology for a consultancy offering business advisory, project management, and technical assistance across Southern and Eastern Africa. Designed, built, and deployed its secure business-development intelligence platform and corporate website.",
     highlights: [
       "Tender pipeline with KPIs, win-rate analytics, and automated deadline reminders",
       "JWTs in httpOnly cookies via a backend-for-frontend proxy, rate-limited login",

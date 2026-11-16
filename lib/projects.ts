@@ -47,13 +47,13 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "colossal-hr-bi",
-    title: "Colossal HR: HR Platform with Conversational Business Intelligence",
+    title: "Colossal Hub: Business Platform with Conversational Business Intelligence",
     category: "Business intelligence / Analytics",
     year: "2025 - 2026",
     summary:
       "A full HR platform where anyone can ask a question in plain language and get a chart back with a cited, readable narrative — every answer traceable to the metric definition and SQL that produced it.",
     description:
-      "The combined Colossal workspace — people, time and attendance, performance, payroll, leave, expenses, training, and the recruitment and AI interview modules — unified behind one conversational business-intelligence layer.",
+      "The combined Colossal workspace — people, time and attendance, performance, dual-currency payroll, fiscalised accounting, leave, expenses, training, and the recruitment and AI interview modules — unified behind one conversational business-intelligence layer, reachable on screen or over WhatsApp.",
     problem:
       "HR teams sit on the data that answers their hardest questions — attrition, cost per hire, leave liability, payroll drift — but getting an answer means filing a ticket and waiting for someone who can write SQL. Bolting an LLM onto the database swaps that delay for a different problem: confident answers nobody can verify.",
     solution:
@@ -74,8 +74,9 @@ export const projects: Project[] = [
       "Natural-language questions answered with charts and cited narratives",
       "Tenant-scoped semantic layer — every answer traces to a metric definition and SQL",
       "Multi-agent pipeline gated on an adversarial fact-checking pass",
-      "Pluggable connectors: Postgres, MySQL, BigQuery, Snowflake, CSV, PDF tables",
-      "Unified workspace: people, time, performance, payroll, leave, expenses, training",
+      "Pluggable connectors: Postgres, MySQL, BigQuery, Snowflake, Redshift, dbt, CSV, PDF tables",
+      "Unified workspace: people, time, performance, payroll, accounting, leave, expenses, training",
+      "WhatsApp as a full channel: payslips, leave, clock-in, expense claims, and analytics Q&A with charts",
       "Recruitment and the AI interview agent run as modules inside the same workspace",
     ],
     metrics: [
@@ -85,7 +86,7 @@ export const projects: Project[] = [
     ],
     caseStudy: {
       overview:
-        "Colossal HR is the combined workspace: the people record, time and attendance, performance, payroll, leave, expenses, and training all live alongside the recruitment and AI interview modules. Its defining feature is the analytics surface on top. Rather than shipping a fixed dashboard, it lets users ask questions in plain language and returns a chart with a written, cited explanation. The engineering problem was not generating SQL — it was making the output auditable enough that an HR manager could act on it.",
+        "Colossal Hub is the combined workspace: the people record, time and attendance, performance, payroll, accounting, leave, expenses, and training all live alongside the recruitment and AI interview modules. Its defining feature is the analytics surface on top. Rather than shipping a fixed dashboard, it lets users ask questions in plain language and returns a chart with a written, cited explanation. The engineering problem was not generating SQL — it was making the output auditable enough that an HR manager could act on it.",
       role: "Sole engineer. Data model, semantic layer, multi-agent analytics pipeline, connectors, backend APIs, frontend, and production deployment.",
       architecture: [
         {
@@ -98,7 +99,7 @@ export const projects: Project[] = [
         },
         {
           title: "Connector layer",
-          body: "Postgres, MySQL, BigQuery, Snowflake, CSV, and PDF tables sit behind one execution interface. sqlglot handles dialect translation, so the planner emits one query shape and the connector renders it correctly per engine.",
+          body: "Postgres, MySQL, BigQuery, Snowflake, Redshift, dbt manifests, CSV, and PDF tables sit behind one execution interface. sqlglot handles dialect translation, so the planner emits one query shape and the connector renders it correctly per engine.",
         },
         {
           title: "HR core",
@@ -124,7 +125,11 @@ export const projects: Project[] = [
         },
         {
           title: "One workspace, many modules",
-          body: "Employee records, time and attendance, performance reviews, payroll, leave, expenses, training, recruitment, and AI interviews share one data model — so the analytics layer reads exactly the data the day-to-day workflows write, with no export step in between.",
+          body: "Employee records, time and attendance, performance reviews, payroll, accounting, leave, expenses, training, recruitment, and AI interviews share one data model — so the analytics layer reads exactly the data the day-to-day workflows write, with no export step in between.",
+        },
+        {
+          title: "Everyday work over WhatsApp",
+          body: "Staff receive payslips, request leave, clock in, and send an expense claim as a photo of the receipt — and managers ask analytics questions and get charts back in the chat — all scoped by role, in the app everyone already has.",
         },
       ],
       challenges: [
@@ -149,12 +154,12 @@ export const projects: Project[] = [
     },
     hero: {
       src: "/screenshots/colossal-hr-bi/hero.png",
-      alt: "Colossal HR — one workspace for people, time, performance, payroll, and recruitment",
+      alt: "Colossal Hub — one workspace for people, time, performance, payroll, accounting, and recruitment",
     },
     screenshots: [
       {
         src: "/screenshots/colossal-hr-bi/hero.png",
-        alt: "Colossal HR sign-in and product overview",
+        alt: "Colossal Hub sign-in and product overview",
         caption:
           "One workspace: unified people record, time and attendance, performance and analytics, and recruitment with AI shortlisting and structured interviews.",
       },
@@ -435,7 +440,7 @@ export const projects: Project[] = [
       alsoLive: [
         {
           href: "https://hr.colossalhub.com",
-          label: "Also inside Colossal HR",
+          label: "Also inside Colossal Hub",
         },
       ],
     },
