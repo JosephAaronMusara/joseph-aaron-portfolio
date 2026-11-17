@@ -32,7 +32,7 @@ export function Hero() {
 
       <Reveal delay={0.1}>
         <p className="mt-6 max-w-prose text-base md:text-lg leading-relaxed text-muted">
-          Full-stack engineer shipping production systems end to end &mdash; data models, secure
+          Full-stack engineer shipping production systems end to end: data models, secure
           backend APIs, analytics and business-intelligence layers, frontends, and cloud
           deployment. First Class Software Engineering graduate and recipient of Baker Tilly&rsquo;s
           Prize for the Best Graduating Student in Computer Programming.

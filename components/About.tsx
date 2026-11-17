@@ -50,7 +50,7 @@ export function About() {
               Best Graduating Student in Computer Programming.
             </p>
             <p>
-              I also go by <span className="text-ink font-medium">Nuvaryn</span> &mdash; a name I
+              I also go by <span className="text-ink font-medium">Nuvaryn</span>, a name I
               coined myself. It stands for originality, innovation, independence, ambition and
               continuous evolution: a mind that creates beyond boundaries. In practice, that means
               building AI-powered systems and helping businesses put technology to work.
@@ -59,16 +59,15 @@ export function About() {
               My work sits where full-stack engineering meets data. I build the whole system:
               the data model, the secure backend APIs, the analytics and business-intelligence
               layer on top, the frontend people actually use, and the deployment that keeps it
-              alive. Recent work includes a full business platform &mdash; HR, dual-currency
+              alive. Recent work includes a full business platform (HR, dual-currency
               payroll, fiscalised accounting, and a natural-language analytics layer, with
-              WhatsApp self-service for staff &mdash; alongside a security-first
-              business-intelligence dashboard and AI-powered SaaS products with integrated
-              payments.
+              WhatsApp self-service for staff), a security-first business-intelligence
+              dashboard, and AI-powered SaaS products with integrated payments.
             </p>
             <p>
-              I care about correctness and security more than most &mdash; auditable analytics
-              rather than opaque model output, permissions and audit trails designed into the
-              schema rather than added later. I prefer to own the path from feature idea to
+              I care about correctness and security more than most: auditable analytics
+              rather than opaque model output, and permissions and audit trails designed into
+              the schema rather than added later. I prefer to own the path from feature idea to
               shipped, running code.
             </p>
           </div>

@@ -51,11 +51,11 @@ export const projects: Project[] = [
     category: "Business intelligence / Analytics",
     year: "2025 - 2026",
     summary:
-      "A full HR platform where anyone can ask a question in plain language and get a chart back with a cited, readable narrative — every answer traceable to the metric definition and SQL that produced it.",
+      "A full HR platform where anyone can ask a question in plain language and get a chart back with a cited, readable narrative. Every answer traces back to the metric definition and SQL that produced it.",
     description:
-      "The combined Colossal workspace — people, time and attendance, performance, dual-currency payroll, fiscalised accounting, leave, expenses, training, and the recruitment and AI interview modules — unified behind one conversational business-intelligence layer, reachable on screen or over WhatsApp.",
+      "The combined Colossal workspace (people, time and attendance, performance, dual-currency payroll, fiscalised accounting, leave, expenses, training, and the recruitment and AI interview modules) unified behind one conversational business-intelligence layer, reachable on screen or over WhatsApp.",
     problem:
-      "HR teams sit on the data that answers their hardest questions — attrition, cost per hire, leave liability, payroll drift — but getting an answer means filing a ticket and waiting for someone who can write SQL. Bolting an LLM onto the database swaps that delay for a different problem: confident answers nobody can verify.",
+      "HR teams sit on the data that answers their hardest questions: attrition, cost per hire, leave liability, payroll drift. But getting an answer means filing a ticket and waiting for someone who can write SQL. Bolting an LLM onto the database swaps that delay for a different problem: confident answers nobody can verify.",
     solution:
       "A conversational analytics surface over a tenant-scoped semantic layer. Users ask in plain language; a multi-agent pipeline plans, executes, visualises, and explains the answer, and an adversarial reviewer has to pass it before it is published. Every chart cites the exact metric definition and SQL behind it.",
     stack: [
@@ -72,7 +72,7 @@ export const projects: Project[] = [
     ],
     highlights: [
       "Natural-language questions answered with charts and cited narratives",
-      "Tenant-scoped semantic layer — every answer traces to a metric definition and SQL",
+      "Tenant-scoped semantic layer, so every answer traces to a metric definition and SQL",
       "Multi-agent pipeline gated on an adversarial fact-checking pass",
       "Pluggable connectors: Postgres, MySQL, BigQuery, Snowflake, Redshift, dbt, CSV, PDF tables",
       "Unified workspace: people, time, performance, payroll, accounting, leave, expenses, training",
@@ -86,12 +86,12 @@ export const projects: Project[] = [
     ],
     caseStudy: {
       overview:
-        "Colossal Hub is the combined workspace: the people record, time and attendance, performance, payroll, accounting, leave, expenses, and training all live alongside the recruitment and AI interview modules. Its defining feature is the analytics surface on top. Rather than shipping a fixed dashboard, it lets users ask questions in plain language and returns a chart with a written, cited explanation. The engineering problem was not generating SQL — it was making the output auditable enough that an HR manager could act on it.",
+        "Colossal Hub is the combined workspace: the people record, time and attendance, performance, payroll, accounting, leave, expenses, and training all live alongside the recruitment and AI interview modules. Its defining feature is the analytics surface on top. Rather than shipping a fixed dashboard, it lets users ask questions in plain language and returns a chart with a written, cited explanation. The real engineering problem was making the output auditable enough that an HR manager could act on it.",
       role: "Sole engineer. Data model, semantic layer, multi-agent analytics pipeline, connectors, backend APIs, frontend, and production deployment.",
       architecture: [
         {
           title: "Semantic layer",
-          body: "Metrics are defined once, per tenant, with their dimensions, joins, and filters. The model never composes against raw schema — it works from defined metrics, so an answer can always be traced back to a definition a human wrote and approved.",
+          body: "Metrics are defined once, per tenant, with their dimensions, joins, and filters. The model never composes against raw schema. It works from defined metrics, so an answer can always be traced back to a definition a human wrote and approved.",
         },
         {
           title: "Multi-agent pipeline",
@@ -103,7 +103,7 @@ export const projects: Project[] = [
         },
         {
           title: "HR core",
-          body: "Frappe on Python owns the operational data model — employees, recruitment, performance, payroll, leave, expenses, training — and exposes it to the Next.js frontend over REST, under the same tenant scoping the analytics layer enforces.",
+          body: "Frappe on Python owns the operational data model (employees, recruitment, performance, payroll, leave, expenses, training) and exposes it to the Next.js frontend over REST, under the same tenant scoping the analytics layer enforces.",
         },
       ],
       features: [
@@ -125,11 +125,11 @@ export const projects: Project[] = [
         },
         {
           title: "One workspace, many modules",
-          body: "Employee records, time and attendance, performance reviews, payroll, accounting, leave, expenses, training, recruitment, and AI interviews share one data model — so the analytics layer reads exactly the data the day-to-day workflows write, with no export step in between.",
+          body: "Employee records, time and attendance, performance reviews, payroll, accounting, leave, expenses, training, recruitment, and AI interviews share one data model, so the analytics layer reads exactly the data the day-to-day workflows write, with no export step in between.",
         },
         {
           title: "Everyday work over WhatsApp",
-          body: "Staff receive payslips, request leave, clock in, and send an expense claim as a photo of the receipt — and managers ask analytics questions and get charts back in the chat — all scoped by role, in the app everyone already has.",
+          body: "Staff receive payslips, request leave, clock in, and send an expense claim as a photo of the receipt, and managers ask analytics questions and get charts back in the chat. Everything is scoped by role, in the app everyone already has.",
         },
       ],
       challenges: [
@@ -147,9 +147,9 @@ export const projects: Project[] = [
         },
       ],
       learnings: [
-        "The hard part of conversational BI is not SQL generation — it is building the layer that makes an answer checkable.",
+        "The hard part of conversational BI is building the layer that makes an answer checkable, not the SQL generation.",
         "An adversarial review pass is cheaper than one wrong number reaching a decision-maker.",
-        "A semantic layer is a product surface, not just infrastructure: letting tenants define their own metrics is what makes the answers correct for them.",
+        "A semantic layer is a product surface as much as infrastructure: letting tenants define their own metrics is what makes the answers correct for them.",
       ],
     },
     hero: {
@@ -161,7 +161,7 @@ export const projects: Project[] = [
         src: "/screenshots/colossal-hr-bi/overall-dashboard.png",
         alt: "The Colossal Hub overall dashboard with headcount, hires, separations, turnover, and 12-month movement charts",
         caption:
-          "The overall dashboard as it runs in production: headcount, hires against separations, turnover, and twelve months of workforce movement — drawn live from the same records the day-to-day workflows write.",
+          "The overall dashboard as it runs in production: headcount, hires against separations, turnover, and twelve months of workforce movement, drawn live from the same records the day-to-day workflows write.",
       },
       {
         src: "/screenshots/colossal-hr-bi/hero.png",
@@ -191,7 +191,7 @@ export const projects: Project[] = [
     summary:
       "A security-first platform for Gibraltar Research Africa that tracks the full tender pipeline with KPIs, win-rate analytics, automated deadline reminders, and a complete audit trail across a shared workspace.",
     description:
-      "A business-development intelligence platform tracking tenders end to end — pipeline stages, KPIs, win-rate analytics, deadline reminders — built on a security-first authentication and permissions model.",
+      "A business-development intelligence platform tracking tenders end to end (pipeline stages, KPIs, win-rate analytics, deadline reminders), built on a security-first authentication and permissions model.",
     problem:
       "Tender pipelines usually live in spreadsheets and inboxes. Deadlines get missed, nobody can say what the win rate actually is, and when several people work the same pipeline there is no record of who changed what.",
     solution:
@@ -226,11 +226,11 @@ export const projects: Project[] = [
       architecture: [
         {
           title: "Backend-for-frontend proxy",
-          body: "The Next.js server sits between the browser and Django. Tokens never touch client JavaScript — JWTs live in httpOnly cookies and the proxy attaches them server-side, which removes the whole class of token-theft-via-XSS.",
+          body: "The Next.js server sits between the browser and Django. Tokens never touch client JavaScript: JWTs live in httpOnly cookies and the proxy attaches them server-side, which removes the whole class of token theft via XSS.",
         },
         {
           title: "Django API",
-          body: "Django owns the domain model — opportunities, stages, owners, deadlines, outcomes, and audit entries — over MongoDB, with role-based permission checks enforced at the API boundary rather than in the UI.",
+          body: "Django owns the domain model (opportunities, stages, owners, deadlines, outcomes, and audit entries) over MongoDB, with role-based permission checks enforced at the API boundary rather than in the UI.",
         },
         {
           title: "Analytics layer",
@@ -248,7 +248,7 @@ export const projects: Project[] = [
         },
         {
           title: "Win-rate analytics",
-          body: "Win rate and pipeline health broken down by stage, period, and owner — the numbers leadership asks for, without anyone rebuilding a spreadsheet.",
+          body: "Win rate and pipeline health broken down by stage, period, and owner: the numbers leadership asks for, without anyone rebuilding a spreadsheet.",
         },
         {
           title: "Automated deadline reminders",
@@ -274,18 +274,18 @@ export const projects: Project[] = [
         },
         {
           title: "Deploying to a client domain",
-          body: "Shipping to bd.gibraltarresearch.africa meant owning DNS, TLS, the Nginx ingress, and the deployment pipeline — not just handing over a repository.",
+          body: "Shipping to bd.gibraltarresearch.africa meant owning DNS, TLS, the Nginx ingress, and the deployment pipeline, rather than handing over a repository.",
         },
       ],
       learnings: [
-        "Putting tokens in httpOnly cookies behind a BFF proxy costs one extra hop and removes an entire vulnerability class — an easy trade.",
+        "Putting tokens in httpOnly cookies behind a BFF proxy costs one extra hop and removes an entire vulnerability class, which is an easy trade.",
         "An audit trail is a feature for the client, not overhead for the engineer; it is what makes a shared workspace trustworthy.",
         "For a business-development tool, the KPI view is the product. Everything else exists to keep it accurate.",
       ],
     },
     hero: {
       src: "/screenshots/gibraltar-bd-platform/hero.png",
-      alt: "BD Intelligence overview — open pipeline, win rate, pipeline value, and won contract value",
+      alt: "BD Intelligence overview: open pipeline, win rate, pipeline value, and won contract value",
     },
     screenshots: [
       {
@@ -304,7 +304,7 @@ export const projects: Project[] = [
         src: "/screenshots/gibraltar-bd-platform/02-login.png",
         alt: "BD Intelligence sign-in",
         caption:
-          "Sign-in to the shared workspace — access managed centrally, with rate-limited login and JWTs in httpOnly cookies.",
+          "Sign-in to the shared workspace. Access is managed centrally, with rate-limited login and JWTs in httpOnly cookies.",
       },
     ],
     links: {
@@ -410,13 +410,13 @@ export const projects: Project[] = [
       ],
       learnings: [
         "Treat the AI as a junior teammate whose output must be auditable: structured fields, rationale, and a check pass.",
-        "Invest in deployment early — a half-running staging environment is worth more than three more features.",
+        "Invest in deployment early; a half-running staging environment is worth more than three more features.",
         "Billing is a product feature. Modeling credits before the AI calls go out keeps unit economics in view.",
       ],
     },
     hero: {
       src: "/screenshots/ai-recruitment-platform/hero.png",
-      alt: "AI-powered recruitment platform — overview",
+      alt: "AI-powered recruitment platform overview",
     },
     screenshots: [
       {
@@ -530,7 +530,7 @@ export const projects: Project[] = [
       challenges: [
         {
           title: "Latency budget",
-          body: "Voice apps live or die at ~600 ms end-to-end. Most of the work was in cutting STT, planning, and TTS hops without breaking quality — careful streaming, minimal prompt context, and overlapping the TTS with the next-question plan.",
+          body: "Voice apps live or die at ~600 ms end-to-end. Most of the work was in cutting STT, planning, and TTS hops without breaking quality: careful streaming, minimal prompt context, and overlapping the TTS with the next-question plan.",
         },
         {
           title: "Failure modes nobody sees",
@@ -538,7 +538,7 @@ export const projects: Project[] = [
         },
         {
           title: "Recording vs. real-time",
-          body: "Egress runs on its own pipeline. Coordinating session close with egress completion (and surfacing the recording URL only when it's actually ready) was a small but load-bearing piece of the design.",
+          body: "Egress runs on its own pipeline. Coordinating session close with egress completion (and surfacing the recording URL only when it's actually ready) was a small but critical piece of the design.",
         },
       ],
       learnings: [
@@ -549,7 +549,7 @@ export const projects: Project[] = [
     },
     hero: {
       src: "/screenshots/ai-interview-agent/hero.png",
-      alt: "Real-time AI interview agent — candidate room",
+      alt: "Real-time AI interview agent, candidate room",
     },
     screenshots: [
       {
@@ -662,12 +662,12 @@ export const projects: Project[] = [
       ],
       learnings: [
         "Public-health software lives or dies on whether the people doing the work trust the data.",
-        "Building for poor connectivity is a feature, not an afterthought.",
+        "Building for poor connectivity has to be designed in from the start.",
       ],
     },
     hero: {
       src: "/screenshots/community-health-platform/hero.png",
-      alt: "Community Health Reporting and Analytics Platform — overview",
+      alt: "Community Health Reporting and Analytics Platform overview",
     },
     architectureDiagram: {
       src: "/screenshots/community-health-platform/architecture.png",
@@ -712,7 +712,7 @@ export const projects: Project[] = [
     category: "Mobile / Agriculture / AI",
     year: "2026",
     summary:
-      "A two-sided mobile app for smallholder potato farmers and agro-dealers — on-device disease detection, stage-based advisories, and proximity dealer discovery, built to work offline.",
+      "A two-sided mobile app for smallholder potato farmers and agro-dealers: on-device disease detection, stage-based advisories, and proximity dealer discovery, built to work offline.",
     description:
       "A React Native + Firebase platform for Zimbabwean potato farmers and agro-dealers, combining on-device TensorFlow Lite disease detection, GPS-based dealer discovery using the Haversine formula, and crop-stage advisories driven by variety and planting date.",
     problem:
@@ -731,7 +731,7 @@ export const projects: Project[] = [
       "GPS / Haversine",
     ],
     highlights: [
-      "On-device CNN (TensorFlow Lite) for potato leaf disease classification — Healthy, Early Blight, Late Blight",
+      "On-device CNN (TensorFlow Lite) for potato leaf disease classification: Healthy, Early Blight, Late Blight",
       "Field management with variety (BP1, Diamond, Mont Claire) and planting date driving stage-specific advisories",
       "Proximity dealer discovery using GPS coordinates and the Haversine formula",
       "Two-sided platform: farmer app and agro-dealer app with multi-warehouse inventory",
@@ -796,7 +796,7 @@ export const projects: Project[] = [
         },
         {
           title: "Dealer-side workflows",
-          body: "Dealers manage business profile, multiple warehouse branches with independent inventory, products (price, image, stock), and farmer ratings — all from the same app.",
+          body: "Dealers manage business profile, multiple warehouse branches with independent inventory, products (price, image, stock), and farmer ratings, all from the same app.",
         },
         {
           title: "Two-way ratings",
@@ -814,7 +814,7 @@ export const projects: Project[] = [
         },
         {
           title: "Designing for offline first",
-          body: "Most of the app has to behave correctly with no network: capture, classify, view fields, read advisories, and queue writes. The data layer was built so the UI never branches on connectivity — Firestore persistence does the heavy lifting and reconciliation handles edge cases on reconnect.",
+          body: "Most of the app has to behave correctly with no network: capture, classify, view fields, read advisories, and queue writes. The data layer was built so the UI never branches on connectivity: Firestore persistence does the heavy lifting and reconciliation handles edge cases on reconnect.",
         },
         {
           title: "Trust on both sides of the marketplace",
@@ -826,7 +826,7 @@ export const projects: Project[] = [
         },
       ],
       learnings: [
-        "Offline is a product feature, not a footnote — designing for it changes the data layer, the UI, and the notification strategy.",
+        "Offline is a product feature in its own right; designing for it changes the data layer, the UI, and the notification strategy.",
         "On-device AI is mostly an engineering problem: model size, input pipeline, and the user's expectation that it just works.",
         "A two-sided app is two products that share a codebase; the role split has to be clean at the data layer or the UI gets tangled fast.",
         "Building for Zimbabwean infrastructure realities (modest devices, patchy data, GPS-equipped but battery-constrained phones) produces a sturdier product than designing for ideal conditions and degrading.",
@@ -841,7 +841,7 @@ export const projects: Project[] = [
     category: "Corporate web / SEO",
     year: "2026",
     summary:
-      "The corporate site for Gibraltar Research Africa — designed, built, and deployed with SEO, responsive layout, and fast first loads as the brief.",
+      "The corporate site for Gibraltar Research Africa, designed, built, and deployed with SEO, responsive layout, and fast first loads as the brief.",
     description:
       "A corporate website for a research and advisory firm, built for search visibility, responsive layout, and quick loads on Zimbabwean connections.",
     problem:
@@ -864,7 +864,7 @@ export const projects: Project[] = [
       {
         src: "/screenshots/gibraltar-corporate-site/hero.png",
         alt: "Homepage hero",
-        caption: "Homepage — advisory, evidence, and delivery across Africa.",
+        caption: "Homepage: advisory, evidence, and delivery across Africa.",
       },
       {
         src: "/screenshots/gibraltar-corporate-site/01-expertise.png",
@@ -894,7 +894,7 @@ export const projects: Project[] = [
     description:
       "A billing foundation for SaaS products using credits, payment initiation, transaction tracking, and Paynow integration for Zimbabwean payment flows.",
     problem:
-      "AI-heavy SaaS products need usage-based billing to protect margins and offer flexible pricing — and in Zimbabwe, that means handling Paynow correctly.",
+      "AI-heavy SaaS products need usage-based billing to protect margins and offer flexible pricing, and in Zimbabwe that means handling Paynow correctly.",
     solution:
       "A credit-based billing model with Paynow payment initiation, status polling, transaction records, and per-feature usage logging.",
     stack: ["Python", "Frappe", "Paynow", "REST APIs", "SaaS Billing"],

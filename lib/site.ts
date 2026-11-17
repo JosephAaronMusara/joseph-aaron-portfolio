@@ -8,7 +8,7 @@ export const site = {
   location: "Harare, Zimbabwe",
   url: "https://joseph-aaron-musara.vercel.app",
   positioning:
-    "I build production software end to end — secure backend APIs, data models, analytics and business-intelligence layers, frontends, and the cloud deployment that keeps them running.",
+    "I build production software end to end: secure backend APIs, data models, analytics and business-intelligence layers, frontends, and the cloud deployment that keeps them running.",
   email: "josephaaronmusara@gmail.com",
   phone: "+263 777 116 031",
   github: "https://github.com/josephaaronmusara",

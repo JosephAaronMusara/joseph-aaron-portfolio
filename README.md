@@ -1,1 +1,1 @@
-# Joseph Aaron Musara — Portfolio
+# Joseph Aaron Musara Portfolio

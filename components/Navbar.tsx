@@ -35,7 +35,7 @@ export function Navbar() {
         <Link
           href="/"
           className="text-sm font-medium tracking-tightish text-ink"
-          aria-label={`${site.name} — home`}
+          aria-label={`${site.name} home`}
           onClick={() => setOpen(false)}
         >
           <span className="font-serif text-base">Joseph</span>

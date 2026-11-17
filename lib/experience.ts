@@ -11,15 +11,15 @@ export const experience: ExperienceEntry[] = [
   {
     role: "Software Engineer",
     company: "Colossal Hub",
-    period: "Oct 2025 — Present",
+    period: "Oct 2025 - Present",
     location: "Remote",
     description:
-      "Lead delivery on one system for running a business — HR, payroll, accounting, recruitment, and conversational business intelligence — end to end: data model, secure backend APIs, AI workflows, frontends, and production deployment.",
+      "Lead delivery on one system for running a business (HR, payroll, accounting, recruitment, and conversational business intelligence) end to end: data model, secure backend APIs, AI workflows, frontends, and production deployment.",
     highlights: [
       "Built an HR platform with an integrated conversational business-intelligence layer",
       "Shipped dual-currency payroll (US$ / ZiG) against NEC sector wage grids, PAYE tables, and NSSA ceilings",
       "Fiscalised the accounting module against ZIMRA's FDMS, with statutory returns ready to file",
-      "Made WhatsApp a product channel — payslips, leave, clock-in, expense claims from a photo, and analytics Q&A with charts — behind layered role-based access control",
+      "Made WhatsApp a product channel for payslips, leave, clock-in, expense claims from a photo, and analytics Q&A with charts, all behind layered role-based access control",
       "Shipped an AI recruitment product with CV parsing and audited candidate scoring",
       "Built a credit-based billing layer with Paynow payment integration",
       "Stack: Next.js, TypeScript, Python (Frappe), PostgreSQL / MariaDB, Redis, Docker, Nginx",
@@ -28,7 +28,7 @@ export const experience: ExperienceEntry[] = [
   {
     role: "Head of Technology & Innovation",
     company: "Gibraltar Research Africa",
-    period: "2026 — Present",
+    period: "2026 - Present",
     location: "Remote",
     description:
       "Lead technology for a consultancy offering business advisory, project management, and technical assistance across Southern and Eastern Africa. Designed, built, and deployed its secure business-development intelligence platform and corporate website.",
@@ -42,7 +42,7 @@ export const experience: ExperienceEntry[] = [
   {
     role: "Full-Stack Developer Intern",
     company: "Vanguard Economics",
-    period: "Nov 2024 — Apr 2025",
+    period: "Nov 2024 - Apr 2025",
     location: "Rwanda",
     description:
       "Developed, tested, and deployed full-stack, data-driven applications for an economics consultancy operating across Rwanda and the wider region.",
@@ -55,7 +55,7 @@ export const experience: ExperienceEntry[] = [
   {
     role: "Software Engineer Intern",
     company: "Spiderbit",
-    period: "Jul 2024 — Nov 2024",
+    period: "Jul 2024 - Nov 2024",
     location: "Rwanda",
     description:
       "Delivered production web systems and backend logic as part of a professional software team.",
@@ -68,7 +68,7 @@ export const experience: ExperienceEntry[] = [
   {
     role: "In-House Software Developer",
     company: "Enes Harness Management Services",
-    period: "Feb 2022 — Jun 2022",
+    period: "Feb 2022 - Jun 2022",
     location: "South Africa",
     description:
       "In-house development for a manufacturing business, building web tools that supported day-to-day operations and management.",
@@ -84,15 +84,15 @@ export const experience: ExperienceEntry[] = [
 export const technicalDepth = [
   {
     title: "Analytics and BI people can actually audit",
-    body: "Natural-language questions to SQL over a tenant-scoped semantic layer, so every chart traces back to the exact metric definition and query that produced it. Auditable BI, not opaque model output.",
+    body: "Natural-language questions to SQL over a tenant-scoped semantic layer, so every chart traces back to the exact metric definition and query that produced it, and anyone can check where a number came from.",
   },
   {
     title: "Security-first backend design",
-    body: "JWTs in httpOnly cookies behind a backend-for-frontend proxy, rate-limited auth, role-based access control, and audit trails across shared multi-user workspaces. Security in the data model, not bolted on after.",
+    body: "JWTs in httpOnly cookies behind a backend-for-frontend proxy, rate-limited auth, role-based access control, and audit trails across shared multi-user workspaces. Security is designed into the data model from the start.",
   },
   {
     title: "AI workflows wired into real products",
-    body: "Not chatbots. CV parsing, candidate scoring, multi-agent pipelines with an adversarial review pass — AI output that has to land in a schema and survive a workflow before anyone acts on it.",
+    body: "CV parsing, candidate scoring, and multi-agent pipelines with an adversarial review pass. The AI output has to land in a schema and survive a workflow before anyone acts on it.",
   },
   {
     title: "Full-stack systems from UI to deployment",
@@ -104,6 +104,6 @@ export const technicalDepth = [
   },
   {
     title: "Zimbabwe-aware software products",
-    body: "Local payment flows like Paynow, infrastructure cost, connectivity, and adoption realities are first-class constraints, not afterthoughts.",
+    body: "Local payment flows like Paynow, infrastructure cost, connectivity, and adoption realities are treated as first-class constraints from day one.",
   },
 ];

@@ -245,7 +245,7 @@ export function CaseStudy({ project }: Props) {
                 </li>
               ) : (
                 <li className="text-muted">
-                  Live deployment — To be added soon.
+                  Live deployment: to be added soon.
                 </li>
               )}
             </ul>
